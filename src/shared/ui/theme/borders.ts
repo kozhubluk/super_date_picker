@@ -1,5 +1,5 @@
 export const borders = {
-  radius: '8px',
+  radius: '4px',
   width: {
     thin: '1px',
     thick: '2px',

@@ -12,7 +12,7 @@ export const tabStyles = {
   }),
 
   isSelected: css({
-    borderBottom: `${1.5}px solid ${theme.colors.primary}`,
+    borderBottom: `${theme.borders.width.thick} solid ${theme.colors.primary}`,
     color: theme.colors.primary,
     fontWeight: theme.typography.weight.medium,
   }),
