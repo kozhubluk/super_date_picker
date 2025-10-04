@@ -4,6 +4,7 @@ import { DatePicker } from './shared/ui/components/date_picker'
 import { Tabs } from './shared/ui/components/tabs'
 import { Tab } from './shared/ui/components/tabs/Tab'
 import { FormControl } from './shared/ui/components/form/FormControl'
+import { Select } from './shared/ui/components/form/select/Select'
 
 const App: React.FC = () => {
   return (
@@ -17,22 +18,6 @@ const App: React.FC = () => {
           <Tab>4234</Tab>
         </Tabs>
         <div>-</div>
-        <FormControl isInvalid isDisabled append={<div>sdfsd</div>}>
-          <select />
-        </FormControl>
-        <div>-</div>
-
-        <FormControl compressed isInvalid append={<div>sdfsd</div>} prepend={<div>sdfsdf</div>}>
-          <button />
-        </FormControl>
-        <div>-</div>
-
-        <FormControl isInvalid append={<div>sdfsd</div>} prepend={<div>sdfsdf</div>}>
-          <button />
-        </FormControl>
-        <FormControl isInvalid append={<div>sdfsd</div>} prepend={<div>sdfsdf</div>}>
-          <div>fsf</div>
-        </FormControl>
       </div>
     </div>
   )

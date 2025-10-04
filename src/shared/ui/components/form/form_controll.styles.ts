@@ -23,7 +23,7 @@ export const formControlStyles = {
       pointerEvents: 'none',
     },
 
-    '> input, button, select': {
+    'input, button, select': {
       position: 'relative',
       zIndex: '10',
       width: '100%',
@@ -43,13 +43,13 @@ export const formControlStyles = {
   }),
 
   isDisabled: css({
-    '> input, button, select': {
+    'input, button, select': {
       backgroundColor: theme.colors.background.secondary,
     },
   }),
 
   isInvalid: css({
-    '> input, button, select': {
+    'input, button, select': {
       outlineColor: theme.colors.red,
     },
   }),
@@ -74,14 +74,14 @@ export const formControlStyles = {
   }),
 
   hasAppend: css({
-    '> input, button, select': {
+    'input, button, select': {
       borderTopLeftRadius: 0,
       borderBottomLeftRadius: 0,
     },
   }),
 
   hasPrepend: css({
-    '> input, button, select': {
+    'input, button, select': {
       borderTopRightRadius: 0,
       borderBottomRightRadius: 0,
     },
@@ -106,6 +106,7 @@ export const formControlStyles = {
     right: '0',
     gap: theme.spacing(1),
     paddingRight: theme.spacing(1),
+    pointerEvents: 'none',
 
     '> *': {
       display: 'flex',

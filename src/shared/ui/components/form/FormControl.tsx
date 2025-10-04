@@ -46,10 +46,10 @@ export const FormControl = ({
         <div css={css(styles.iconContainer)}>
           {isInvalid && (
             <div css={css(styles.idInvalidIcon)}>
-              <TriangleAlert height={14} />
+              <TriangleAlert height={14} width={14} />
             </div>
           )}
-          {!!icon && <div></div>}
+          {!!icon && icon}
         </div>
       </div>
 
