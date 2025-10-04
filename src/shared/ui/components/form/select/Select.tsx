@@ -35,7 +35,7 @@ export const Select: FC<SelectProps> = ({
       isInvalid={isInvalid}
       compressed={compressed}
       isDisabled={isDisabled}
-      icon={<ChevronDown width={16} color={theme.colors.grey} />}
+      icon={<ChevronDown width={16} height={16} color={theme.colors.grey} />}
     >
       <select style={{ appearance: 'none', cursor: 'pointer' }} value={value} onChange={handleChange} {...rest}>
         {options.map((opt) => (
