@@ -1,31 +1,24 @@
-import 'react-datepicker/dist/react-datepicker.css' // можно убрать, если полностью кастомишь стили
-import { DatePicker } from './shared/ui/components/date_picker'
-import CustomButton from './shared/ui/components/button/Button'
-import { ArrowBigDown } from 'lucide-react'
 import { useState } from 'react'
-import { DelimitedFormControl } from './shared/ui/components/form/DelimitedFormControl'
+import { SuperDatePicker } from './shared/ui/components/date_picker/super_date_picker/SuperDatePicker'
+import { onTimeChangeProps } from './shared/ui/components/date_picker/super_date_picker/types'
 
 const App: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
+  const [start, setStart] = useState('now-30m')
+  const [end, setEnd] = useState('now')
+
+  const onTimeChange = ({ start, end }: onTimeChangeProps) => {
+    setStart(start)
+    setEnd(end)
+    console.log('Time changed:', { start, end })
+  }
   return (
     <>
-      <div style={{ padding: 50 }}>
-        <DatePicker showTimeSelect selected={selectedDate} onChange={(date: Date | null) => setSelectedDate(date)} />
-      </div>
-      <DelimitedFormControl prepend={'dfs'} append={'fsdf'} startControl={<button>d</button>} endControl={<input />} />
-
-      <CustomButton color="red">sdf</CustomButton>
-      <CustomButton color="green" size="l">
-        sdf
-      </CustomButton>
-      <CustomButton color="primary" size="l">
-        sdf
-      </CustomButton>
-      <CustomButton color="transparent" size="l">
-        sdf
-      </CustomButton>
-
-      <CustomButton size="s">sdf</CustomButton>
+      <SuperDatePicker
+        recentlyUsedOptions={[{ start: 'now', end: 'now-12m' }]}
+        start={start}
+        end={end}
+        onTimeChange={onTimeChange}
+      />
     </>
   )
 }

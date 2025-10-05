@@ -1,5 +1,5 @@
 export const typography = {
-  fontFamily: 'Inter, BlinkMacSystemFont, Helvetica, Arial, sans-serif;',
+  fontFamily: 'Nunito, sans-serif',
   size: {
     small: '12px',
     base: '14px',
@@ -7,8 +7,9 @@ export const typography = {
     xl: '24px',
   },
   weight: {
-    regular: 400,
-    medium: 500,
-    bold: 700,
+    light: 500,
+    regular: 600,
+    medium: 700,
+    bold: 800,
   },
 }

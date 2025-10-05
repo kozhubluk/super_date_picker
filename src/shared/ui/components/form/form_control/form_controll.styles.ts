@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { theme } from '../../theme'
+import { theme } from '../../../theme'
 
 export const formControlStyles = {
   base: css({
@@ -34,6 +34,7 @@ export const formControlStyles = {
       border: 'none',
       outlineOffset: `-${theme.borders.width.thin}`,
       outline: `${theme.borders.width.thin} solid ${theme.colors.secondary}`,
+      fontFamily: theme.typography.fontFamily,
 
       '&:focus': {
         outlineOffset: `-${theme.borders.width.thick}`,
@@ -76,7 +77,6 @@ export const formControlStyles = {
     fontWeight: theme.typography.weight.medium,
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '0 ' + theme.spacing(2),
     backgroundColor: theme.colors.background.primary,
     color: theme.colors.primary,
   }),
@@ -103,9 +103,9 @@ export const formControlStyles = {
     fontFamily: theme.typography.fontFamily,
     fontSize: theme.typography.size.base,
     fontWeight: theme.typography.weight.medium,
-    padding: '0 ' + theme.spacing(2),
     backgroundColor: theme.colors.background.primary,
     color: theme.colors.primary,
+    outline: 'none',
   }),
 
   // Иконки

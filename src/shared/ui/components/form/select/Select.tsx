@@ -1,9 +1,9 @@
 import React from 'react'
-import { FormControl, FormControlProps } from '../FormControl'
+import { FormControl, FormControlProps } from '../form_control/FormControl'
 import { ChevronDown } from 'lucide-react'
 import { theme } from '../../../theme'
 
-interface Option<T> {
+export interface Option<T> {
   value: T
   name: string
 }
@@ -38,7 +38,6 @@ export function Select<T extends number | string>({
       icon={<ChevronDown width={16} height={16} color={theme.colors.grey} />}
     >
       <select
-        className="widthHeight"
         style={{ appearance: 'none', cursor: 'pointer', paddingInlineStart: '4px' }}
         value={value}
         onChange={handleChange}

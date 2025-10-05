@@ -15,6 +15,17 @@ export const buttonStyles = {
     transition: '0.1s',
   }),
 
+  isLink: css({
+    backgroundColor: 'transparent',
+    color: theme.colors.primary,
+    fontWeight: theme.typography.weight.medium,
+    padding: 0,
+
+    ':hover': {
+      textDecoration: 'underline',
+    },
+  }),
+
   size: {
     s: css({
       height: theme.form.size.small,
@@ -28,7 +39,7 @@ export const buttonStyles = {
     }),
     l: css({
       height: theme.form.size.large,
-      fontSize: theme.typography.size.large,
+      fontSize: theme.typography.size.base,
       padding: `${spacing(1)} ${spacing(2)}`,
     }),
   },

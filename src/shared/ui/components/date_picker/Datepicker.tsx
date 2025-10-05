@@ -5,7 +5,7 @@ import ReactDatePicker, { DatePickerProps as ReactDatePickerProps } from 'react-
 import 'react-datepicker/dist/react-datepicker.css'
 import { TooltipPopover } from '../popover'
 import { Select } from '../form'
-import Button from '../button/Button'
+import { Button } from '../button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { customDatePickerStyles as styles } from './datepicker.styles'
 import { useCallback } from 'react'

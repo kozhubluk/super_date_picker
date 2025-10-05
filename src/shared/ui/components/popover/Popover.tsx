@@ -133,6 +133,7 @@ export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children
               boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.2)',
               zIndex: 9999,
               pointerEvents: 'auto',
+              borderRadius: '4px',
               backgroundColor: 'transparent',
               transform: `${styles.popper?.transform || ''}`,
             }}

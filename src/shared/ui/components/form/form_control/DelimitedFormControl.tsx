@@ -23,7 +23,7 @@ export const DelimitedFormControl = ({
   ...rest
 }: DelimitedFormControlProps) => {
   return (
-    <FormControl icon={icon} isInvalid={true} isDisabled={isDisabled} compressed={compressed} {...rest}>
+    <FormControl icon={icon} isInvalid={isInvalid} isDisabled={isDisabled} compressed={compressed} {...rest}>
       <div css={css(fromControlCss)}>
         <div css={css(styles.startControl)}>{startControl}</div>
         <div css={css(styles.delimiter)}>
