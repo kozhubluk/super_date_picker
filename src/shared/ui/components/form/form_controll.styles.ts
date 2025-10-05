@@ -71,6 +71,11 @@ export const formControlStyles = {
   append: css({
     borderRight: `${theme.borders.width.thin} solid ${theme.colors.secondary}`,
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0 ' + theme.spacing(2),
+    backgroundColor: theme.colors.background.primary,
+    color: theme.colors.primary,
   }),
 
   hasAppend: css({
@@ -90,6 +95,11 @@ export const formControlStyles = {
   prepend: css({
     borderLeft: `${theme.borders.width.thin} solid ${theme.colors.secondary}`,
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0 ' + theme.spacing(2),
+    backgroundColor: theme.colors.background.primary,
+    color: theme.colors.primary,
   }),
 
   // Иконки

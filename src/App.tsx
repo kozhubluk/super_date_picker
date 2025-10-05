@@ -2,12 +2,14 @@ import 'react-datepicker/dist/react-datepicker.css' // можно убрать, 
 import { DatePicker } from './shared/ui/components/date_picker'
 import CustomButton from './shared/ui/components/button/Button'
 import { ArrowBigDown } from 'lucide-react'
+import { useState } from 'react'
 
 const App: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
   return (
     <>
       <div style={{ padding: 50 }}>
-        <DatePicker />
+        <DatePicker showTimeSelect selected={selectedDate} onChange={(date: Date | null) => setSelectedDate(date)} />
       </div>
 
       <CustomButton color="red">sdf</CustomButton>
