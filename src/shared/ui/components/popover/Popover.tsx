@@ -71,7 +71,12 @@ export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children
     if (!isOpen) return
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (popperRef.current && !popperRef.current.contains(event.target as Node) && buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+      if (
+        popperRef.current &&
+        !popperRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false)
       }
     }
@@ -123,8 +128,12 @@ export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children
             }}
             style={{
               ...styles.popper,
+              WebkitBoxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.2)',
+              MozBoxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.2)',
+              boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.2)',
               zIndex: 9999,
               pointerEvents: 'auto',
+              backgroundColor: 'transparent',
               transform: `${styles.popper?.transform || ''}`,
             }}
             className={`popover ${isVisible ? 'popover-enter' : 'popover-exit'}`}
