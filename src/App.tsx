@@ -3,6 +3,7 @@ import { DatePicker } from './shared/ui/components/date_picker'
 import CustomButton from './shared/ui/components/button/Button'
 import { ArrowBigDown } from 'lucide-react'
 import { useState } from 'react'
+import { DelimitedFormControl } from './shared/ui/components/form/DelimitedFormControl'
 
 const App: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null)
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <div style={{ padding: 50 }}>
         <DatePicker showTimeSelect selected={selectedDate} onChange={(date: Date | null) => setSelectedDate(date)} />
       </div>
+      <DelimitedFormControl prepend={'dfs'} append={'fsdf'} startControl={<button>d</button>} endControl={<input />} />
 
       <CustomButton color="red">sdf</CustomButton>
       <CustomButton color="green" size="l">

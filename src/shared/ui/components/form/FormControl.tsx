@@ -14,7 +14,6 @@ export interface FormControlProps {
   isInvalid?: boolean
   isDisabled?: boolean
   compressed?: boolean
-  isDelimited?: boolean
 }
 
 export const FormControl = ({

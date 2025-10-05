@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react'
 import { FormControl, FormControlProps } from '../FormControl'
-import { theme } from '../../../theme'
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'children'>,
