@@ -13,9 +13,10 @@ export const ResentlyUsed = ({ handleApply }: ResentlyUsedProps) => {
     <div>
       <TextComponent weight="medium" text="Recently used date ranges" />
       <div style={{ display: 'grid', gridTemplateColumns: '1fr' }}>
-        {recentlyUsedOptions?.map(({ start, end }) => (
+        {recentlyUsedOptions?.map(({ start, end }, index) => (
           <div>
             <Button
+              key={index}
               isLink
               onClick={() => {
                 handleApply?.({ start, end })

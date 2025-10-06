@@ -6,4 +6,10 @@ export const form = {
     medium: '24px',
     large: '30px',
   },
+  tumbler: {
+    height: '22px',
+    width: '40px',
+    elementSize: '16px',
+    borderRadius: '10px',
+  },
 }

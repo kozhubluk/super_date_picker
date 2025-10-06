@@ -3,6 +3,8 @@ import { DelimitedFormControl } from '../../form/form_control/DelimitedFormContr
 import { QuickSelectPopover } from './QuickSelectPopover'
 import { TimeOptionsProvider } from './TimeOptionsContext'
 import { onTimeChangeProps, startEndOption, SuperDatePickerState } from './types'
+import { DatepickerSelectPopover } from './datepicker_select/DatepickerSelectPopver'
+import { Button } from '../../button'
 
 export interface SuperDatePickerProps {
   start?: string
@@ -41,15 +43,16 @@ export const SuperDatePicker = ({
   }
 
   const renderQuickSelect = () => {
-    return <QuickSelectPopover start={start} end={end} handleApply={applyChanges} />
+    return <QuickSelectPopover start={datepickerState.start} end={datepickerState.end} handleApply={applyChanges} />
   }
   return (
     <TimeOptionsProvider recentlyUsedOptions={recentlyUsedOptions}>
       <DelimitedFormControl
         append={renderQuickSelect()}
-        startControl={<input readOnly value={start} />}
-        endControl={<input readOnly value={end} />}
+        startControl={<DatepickerSelectPopover updateValue={updateStart} value={datepickerState.start} />}
+        endControl={<DatepickerSelectPopover updateValue={updateEnd} value={datepickerState.end} roundUp />}
       />
+      <Button onClick={() => applyChanges({ start: datepickerState.start, end: datepickerState.end })}>Apply</Button>
     </TimeOptionsProvider>
   )
 }

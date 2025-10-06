@@ -10,3 +10,10 @@ export const parseQuickSelect = (start?: string, end?: string): QuickSelect => {
 
   return defaultValue
 }
+
+export const relativeUnitToDatemath = (date: string): string => {
+  const unit = 'm'
+  const operator = ''
+  
+  return ''
+}

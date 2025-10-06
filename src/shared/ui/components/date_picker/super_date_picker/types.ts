@@ -1,6 +1,21 @@
 import { Option } from '../../form/select/Select'
 
 export type TimeUnit = 's' | 'm' | 'h' | 'd' | 'w' | 'M' | 'y'
+export type RelativeTimeUnit =
+  | '+s'
+  | '+m'
+  | '+h'
+  | '+d'
+  | '+w'
+  | '+M'
+  | '+y'
+  | '-s'
+  | '-m'
+  | '-h'
+  | '-d'
+  | '-w'
+  | '-M'
+  | '-y'
 
 export enum TimeDirection {
   LAST = 'Last',
@@ -38,5 +53,6 @@ export interface TimeOptions {
   timeUnitOptions: Option<TimeUnit>[]
   timeDirectionOptions: Option<TimeDirection>[]
   commonUsedOptions: startEndOption[]
+  relativeUnitOptions: Option<RelativeTimeUnit>[]
   recentlyUsedOptions?: startEndOption[]
 }

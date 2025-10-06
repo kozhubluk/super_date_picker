@@ -1,13 +1,14 @@
 import { Calendar, ChevronDown } from 'lucide-react'
 import { TooltipPopover } from '../../popover'
 import { QuickSelect } from './QuickSelect'
-import { onApplyClickProps } from './types'
+import { onApplyClickProps, QuickSelect as QuickSelectType } from './types'
 import { CommonUsed } from './CommonUsed'
 import { ResentlyUsed } from './RecentlyUsed'
 
 interface QuickSelectPopoverProps {
   start?: string
   end?: string
+  quickSelect?: QuickSelectType
   handleApply?: (time: onApplyClickProps) => void
 }
 

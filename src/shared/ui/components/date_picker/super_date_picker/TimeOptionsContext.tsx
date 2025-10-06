@@ -1,11 +1,12 @@
 import { createContext, ReactNode, useContext } from 'react'
-import { startEndOption, TimeDirection, TimeOptions, TimeUnit } from './types'
+import { RelativeTimeUnit, startEndOption, TimeDirection, TimeOptions, TimeUnit } from './types'
 import { Option } from '../../form/select/Select'
 
 const TimeOptionsContext = createContext<TimeOptions>({
   timeDirectionOptions: [],
   timeUnitOptions: [],
   commonUsedOptions: [],
+  relativeUnitOptions: [],
 })
 
 // Quick select panel options
@@ -38,9 +39,24 @@ export const commonUsedOptions: startEndOption[] = [
   { name: 'Year to date', start: 'now/y', end: 'now' },
 ]
 
-// resently used panel options
-
 // relative options
+
+export const relativeUnitOptions: Option<RelativeTimeUnit>[] = [
+  { value: '+s', name: 'Seconds ago' },
+  { value: '+m', name: 'Minutes ago' },
+  { value: '+h', name: 'Hours ago' },
+  { value: '+d', name: 'Days ago' },
+  { value: '+w', name: 'Weeks ago' },
+  { value: '+M', name: 'Months ago' },
+  { value: '+y', name: 'Years ago' },
+  { value: '-s', name: 'Seconds from now' },
+  { value: '-m', name: 'Minutes from now' },
+  { value: '-h', name: 'Hours from now' },
+  { value: '-d', name: 'Days from now' },
+  { value: '-w', name: 'Weeks from now' },
+  { value: '-M', name: 'Months from now' },
+  { value: '-y', name: 'Years from now' },
+]
 
 export const TimeOptionsProvider = ({
   children,
@@ -51,7 +67,7 @@ export const TimeOptionsProvider = ({
 }) => {
   return (
     <TimeOptionsContext.Provider
-      value={{ timeUnitOptions, timeDirectionOptions, commonUsedOptions, recentlyUsedOptions }}
+      value={{ timeUnitOptions, timeDirectionOptions, commonUsedOptions, recentlyUsedOptions, relativeUnitOptions }}
     >
       {children}
     </TimeOptionsContext.Provider>
