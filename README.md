@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Super Datepicker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Super DatePicker — это реализация выбора даты и времени по аналогии с компонентом Elastic UI DatePicker, с поддержкой "datemath" выражений (now-15m, now+1d/d и т.д.), а также выюранных диапазонов.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Используемые библиотеки
 
-### `npm start`
+- react-datepicker
+- elastic/datemath-js
+- Moment
+- emotion/css
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Установка и запуск
 
-### `npm test`
+```
+git clone https://github.com/kozhubluk/super_date_picker.git
+cd super_date_picker
+npm install
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Свойства
 
-### `npm run build`
+| Свойство            | Тип                 | Значение по умолчанию          |
+| ------------------- | ------------------- | ------------------------------ |
+| onTimeChange        | `onTimeChangeProps` | Обязательное                   |
+| start               | `string`            |                                |
+| end                 | `string`            |                                |
+| recentlyUsedOptions | `StartEndOption[]`  |                                |
+| dateFormat          | `string`            | `'MMM D, YYYY @ HH:mm:ss.SSS'` |
+| timeFormat          | `string`            | `'HH:mm'`                      |
+| compressed          | `boolean`           | `false`                        |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Пример использования
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+const App = () => {
+  const [start, setStart] = useState<string>('now')
+  const [end, setEnd] = useState<string>('now+15m')
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  const onTimeChange = ({ start, end }: onTimeChangeProps) => {
+    setStart(start)
+    setEnd(end)
+    console.log('Time changed:', { start, end })
+  }
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  return (
+    <div style={{ height: '100vh', width: '100vw', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <SuperDatePicker
+        recentlyUsedOptions={[{ start: 'now', end: 'now-12m' }]}
+        start={start}
+        end={end}
+        onTimeChange={onTimeChange}
+      />
+    </div>
+  )
+}
+```

@@ -20,8 +20,8 @@ export interface SuperDatePickerProps {
 }
 
 export const SuperDatePicker = ({
-  start = 'now-15m',
-  end = 'now',
+  start = '',
+  end = '',
   onTimeChange,
   recentlyUsedOptions,
   compressed = false,
