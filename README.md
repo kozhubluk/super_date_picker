@@ -1,7 +1,7 @@
 # Super Datepicker
 
 Super DatePicker — это реализация выбора даты и времени по аналогии с компонентом Elastic UI DatePicker, с поддержкой "datemath" выражений (now-15m, now+1d/d и т.д.), а также выюранных диапазонов.
-
+[][https://github.com/kozhubluk/super_date_picker/issues/1#issue-3491553947]
 ---
 
 ## Используемые библиотеки
