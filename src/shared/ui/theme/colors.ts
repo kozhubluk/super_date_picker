@@ -8,11 +8,11 @@ export const colors = {
   warning: 'rgba(241, 196, 15, 1)',
   text: {
     main: '#212121',
-    muted: '#4f5662ff',
+    muted: '#484c51ff',
     inverted: '#ffffff',
   },
   background: {
-    primary: 'rgba(214, 229, 247, 1)',
+    primary: 'rgba(242, 246, 251, 1)',
     blue: 'rgba(244, 249, 255, 1)',
     light: '#ffffffff',
     secondary: '#f6f6f6ff',

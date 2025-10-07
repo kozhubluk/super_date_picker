@@ -14,6 +14,7 @@ export interface FormControlProps {
   isInvalid?: boolean
   isDisabled?: boolean
   compressed?: boolean
+  errorMessage?: string
 }
 
 export const FormControl = ({
@@ -24,6 +25,7 @@ export const FormControl = ({
   isInvalid = false,
   isDisabled = false,
   compressed = false,
+  errorMessage,
 }: FormControlProps) => {
   const hasAppend = !!append
   const hasPrepend = !!prepend
@@ -38,21 +40,17 @@ export const FormControl = ({
   ])
 
   return (
-    <div css={formControlCss}>
-      {append && <div css={css(styles.append)}>{append}</div>}
-      <div css={css(styles.formWrapper)}>
-        {children}
-        <div css={css(styles.iconContainer)}>
-          {isInvalid && (
-            <div css={css(styles.idInvalidIcon)}>
-              <TriangleAlert height={14} width={14} />
-            </div>
-          )}
-          {!!icon && icon}
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div css={formControlCss}>
+        {append && <div css={css(styles.append)}>{append}</div>}
+        <div css={css(styles.formWrapper)}>
+          {children}
+          <div css={css(styles.iconContainer)}>{!!icon && icon}</div>
         </div>
-      </div>
 
-      {prepend && <div css={css(styles.prepend)}>{prepend}</div>}
+        {prepend && <div css={css(styles.prepend)}>{prepend}</div>}
+      </div>
+      {errorMessage && <div css={css(styles.error)}>{errorMessage}</div>}
     </div>
   )
 }

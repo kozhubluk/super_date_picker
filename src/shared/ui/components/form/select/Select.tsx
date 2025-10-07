@@ -22,7 +22,6 @@ export function Select<T extends number | string>({
   isInvalid,
   isDisabled,
   compressed,
-  className,
   onChange,
   ...rest
 }: SelectProps<T>) {
@@ -31,14 +30,9 @@ export function Select<T extends number | string>({
   }
 
   return (
-    <FormControl
-      isInvalid={isInvalid}
-      compressed={compressed}
-      isDisabled={isDisabled}
-      icon={<ChevronDown width={16} height={16} color={theme.colors.grey} />}
-    >
+    <FormControl isInvalid={isInvalid} compressed={compressed} isDisabled={isDisabled}>
       <select
-        style={{ appearance: 'none', cursor: 'pointer', paddingInlineStart: '4px' }}
+        style={{ cursor: 'pointer', paddingInlineStart: '4px', ...rest.style }}
         value={value}
         onChange={handleChange}
         {...rest}

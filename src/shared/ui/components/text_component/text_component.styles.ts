@@ -26,7 +26,10 @@ export const textComponentStyles = {
       color: theme.colors.primary,
     }),
     secondary: css({
-      color: theme.colors.secondary,
+      color: theme.colors.text.muted,
+    }),
+    error: css({
+      color: theme.colors.danger,
     }),
   },
 

@@ -18,13 +18,17 @@ export const buttonStyles = {
   isLink: css({
     backgroundColor: 'transparent',
     color: theme.colors.primary,
-    fontWeight: theme.typography.weight.medium,
+    fontWeight: theme.typography.weight.regular,
     padding: 0,
 
     ':hover': {
       textDecoration: 'underline',
     },
   }),
+
+  disabled: {
+    opacity: '75%',
+  },
 
   size: {
     s: css({
@@ -48,6 +52,10 @@ export const buttonStyles = {
     primary: css({
       backgroundColor: theme.colors.primary,
       color: theme.colors.text.inverted,
+
+      ':hover': {
+        filter: 'brightness(110%)',
+      },
     }),
     transparent: css({
       backgroundColor: 'transparent',

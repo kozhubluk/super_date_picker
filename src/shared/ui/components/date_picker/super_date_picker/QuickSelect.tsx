@@ -12,10 +12,11 @@ interface QuickSelectProps {
   start?: string
   end?: string
   quickSelect?: QuickSelectType
+  closePopover?: () => void
   handleApply?: (quickSelect: onApplyClickProps) => void
 }
 
-export const QuickSelect = ({ start, end, quickSelect, handleApply }: QuickSelectProps) => {
+export const QuickSelect = ({ start, end, quickSelect, handleApply, closePopover }: QuickSelectProps) => {
   const { timeUnitOptions, timeDirectionOptions } = useTimeOptions()
 
   const defaultQuickSelect = parseQuickSelect(start, end)
@@ -65,11 +66,21 @@ export const QuickSelect = ({ start, end, quickSelect, handleApply }: QuickSelec
       end: `now+${value}${unit}`,
       quickSelect: tempQuickSelect,
     })
+
+    closePopover?.()
   }
 
   return (
     <div>
-      <div style={{ display: 'flex', gap: '4px', marginTop: '8px', marginBottom: '8px' }}>
+      <div
+        style={{
+          display: 'flex',
+          gap: '4px',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '4px',
+        }}
+      >
         <TextComponent text="Quick select" weight="medium" />
         <div style={{ display: 'flex', gap: '4px' }}>
           <Button onClick={clickPrev} color="transparent">
@@ -80,9 +91,9 @@ export const QuickSelect = ({ start, end, quickSelect, handleApply }: QuickSelec
           </Button>
         </div>
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ display: 'grid', gap: '4px', gridTemplateColumns: '1fr 1fr 1fr 0.75fr' }}>
         <Select value={tempQuickSelect.direction} options={timeDirectionOptions} onChange={updateDirection} />
-        <Input value={tempQuickSelect.value} defaultValue={15} type="number" onChange={updateNumber} />
+        <Input value={tempQuickSelect.value} type="number" onChange={updateNumber} />
         <Select value={tempQuickSelect.unit} options={timeUnitOptions} onChange={updateUnit} />
 
         <Button size="l" color="primary" onClick={onClickApply}>

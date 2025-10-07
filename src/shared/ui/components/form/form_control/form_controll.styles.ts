@@ -28,8 +28,10 @@ export const formControlStyles = {
       zIndex: '10',
       width: '100%',
       height: '100%',
+      paddingInlineStart: theme.spacing(1),
+      paddingInlineEnd: theme.spacing(1),
       boxSizing: 'border-box',
-      backgroundColor: theme.colors.background.light,
+      // backgroundColor: theme.colors.background.light,
       borderRadius: theme.borders.radius,
       border: 'none',
       outlineOffset: `-${theme.borders.width.thin}`,
@@ -45,7 +47,8 @@ export const formControlStyles = {
 
   isDisabled: css({
     'input, button, select': {
-      backgroundColor: theme.colors.background.secondary,
+      backgroundColor: theme.colors.background.dark + ' !important',
+      color: theme.colors.text.muted,
     },
   }),
 
@@ -74,11 +77,11 @@ export const formControlStyles = {
     display: 'flex',
     fontFamily: theme.typography.fontFamily,
     fontSize: theme.typography.size.base,
-    fontWeight: theme.typography.weight.medium,
+    fontWeight: theme.typography.weight.regular,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.background.primary,
-    color: theme.colors.primary,
+    color: theme.colors.text.main,
   }),
 
   hasAppend: css({
@@ -102,9 +105,9 @@ export const formControlStyles = {
     justifyContent: 'center',
     fontFamily: theme.typography.fontFamily,
     fontSize: theme.typography.size.base,
-    fontWeight: theme.typography.weight.medium,
+    fontWeight: theme.typography.weight.regular,
     backgroundColor: theme.colors.background.primary,
-    color: theme.colors.primary,
+    color: theme.colors.text.main,
     outline: 'none',
   }),
 
@@ -133,5 +136,14 @@ export const formControlStyles = {
 
   idInvalidIcon: css({
     color: theme.colors.red,
+  }),
+
+  // error message
+  error: css({
+    color: theme.colors.danger,
+    fontFamily: theme.typography.fontFamily,
+    fontWeight: theme.typography.weight.regular,
+    fontSize: theme.typography.size.small,
+    marginTop: theme.spacing(1),
   }),
 }

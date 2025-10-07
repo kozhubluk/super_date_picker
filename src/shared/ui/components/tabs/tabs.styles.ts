@@ -6,7 +6,6 @@ export const tabsStyles = {
     position: 'relative',
     display: 'flex',
     width: '100%',
-    background: theme.colors.background.light,
     overflow: 'auto',
   }),
 

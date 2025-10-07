@@ -11,7 +11,7 @@ export interface InputProps
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ isInvalid, isDisabled, compressed, icon, prepend, append, onChange, ...rest }, ref) => {
+  ({ isInvalid, isDisabled, compressed, icon, prepend, append, onChange, errorMessage, ...rest }, ref) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value)
     }
@@ -24,16 +24,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         icon={icon}
         prepend={prepend}
         append={append}
+        errorMessage={errorMessage}
       >
-        <input
-          ref={ref}
-          disabled={isDisabled}
-          onChange={handleChange}
-          {...rest}
-          style={{
-            paddingInlineStart: '10px',
-          }}
-        />
+        <input ref={ref} disabled={isDisabled} onChange={handleChange} {...rest} />
       </FormControl>
     )
   },

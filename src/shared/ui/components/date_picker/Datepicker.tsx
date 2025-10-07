@@ -8,13 +8,14 @@ import { Select } from '../form'
 import { Button } from '../button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { customDatePickerStyles as styles } from './datepicker.styles'
-import { useCallback } from 'react'
+import { useCallback, useState } from 'react'
 import { Input } from '../form/input/Input'
 import moment from 'moment'
 
 export type DatePickerProps = Omit<ReactDatePickerProps, 'renderCustomHeader' | 'showTimeCaption'>
 
 export const DatePicker = ({ inline = false, selected, dateFormat, ...rest }: ReactDatePickerProps) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   const renderCustomHeader = useCallback(
     ({
       date,
@@ -45,25 +46,27 @@ export const DatePicker = ({ inline = false, selected, dateFormat, ...rest }: Re
       return (
         <>
           <Button onClick={decreaseMonth} color="transparent" disabled={prevMonthButtonDisabled}>
-            <ChevronLeft width={16} height={16} strokeWidth={2} />
+            <ChevronLeft width={14} height={14} strokeWidth={2} />
           </Button>
 
-          <Select
-            value={months[date.getMonth()]}
-            options={months.map((m) => ({ value: m, name: m }))}
-            onChange={(value) => changeMonth(months.indexOf(value.toString()))}
-            compressed
-          />
+          <div style={{ display: 'grid', gridTemplateColumns: '4fr 3fr', gap: '4px' }}>
+            <Select
+              value={months[date.getMonth()]}
+              options={months.map((m) => ({ value: m, name: m }))}
+              onChange={(value) => changeMonth(months.indexOf(value.toString()))}
+              compressed
+            />
 
-          <Select
-            value={date.getFullYear()}
-            options={years.map((y) => ({ value: y, name: y.toString() }))}
-            onChange={(value) => changeYear(parseInt(value))}
-            compressed
-          />
+            <Select
+              value={date.getFullYear()}
+              options={years.map((y) => ({ value: y, name: y.toString() }))}
+              onChange={(value) => changeYear(parseInt(value))}
+              compressed
+            />
+          </div>
 
           <Button onClick={increaseMonth} color="transparent" disabled={nextMonthButtonDisabled}>
-            <ChevronRight width={16} height={16} strokeWidth={2} />
+            <ChevronRight width={14} height={14} strokeWidth={2} />
           </Button>
         </>
       )
@@ -94,7 +97,7 @@ export const DatePicker = ({ inline = false, selected, dateFormat, ...rest }: Re
   }
 
   return (
-    <TooltipPopover button={CustomInputButton}>
+    <TooltipPopover isOpen={isOpen} setIsOpen={setIsOpen} button={CustomInputButton}>
       <div css={css(styles)}>
         <ReactDatePicker
           selected={selected}

@@ -1,15 +1,23 @@
 import React, { useState, useRef, ReactNode, useLayoutEffect, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { usePopper } from 'react-popper'
+import { theme } from '../../theme'
 
 interface TooltipPopoverProps {
+  isOpen: boolean
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
   button: ReactNode
   children: ReactNode
   placement?: 'top' | 'bottom' | 'left' | 'right'
 }
 
-export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children, placement = 'bottom' }) => {
-  const [isOpen, setIsOpen] = useState(false)
+export const TooltipPopover: React.FC<TooltipPopoverProps> = ({
+  button,
+  children,
+  placement = 'bottom',
+  isOpen,
+  setIsOpen,
+}) => {
   const [isVisible, setIsVisible] = useState(false)
   const buttonRef = useRef<HTMLElement | null>(null)
   const popperRef = useRef<HTMLDivElement | null>(null)
@@ -85,7 +93,7 @@ export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children
     return () => {
       document.removeEventListener('mousedown', handleClickOutside)
     }
-  }, [isOpen])
+  }, [isOpen, setIsOpen])
 
   const togglePopover = () => setIsOpen((prev) => !prev)
 
@@ -133,11 +141,10 @@ export const TooltipPopover: React.FC<TooltipPopoverProps> = ({ button, children
               boxShadow: '0px 0px 10px 0px rgba(0, 0, 0, 0.2)',
               zIndex: 9999,
               pointerEvents: 'auto',
-              borderRadius: '4px',
-              backgroundColor: 'transparent',
+              borderRadius: theme.borders.radius,
+              backgroundColor: theme.colors.background.light,
               transform: `${styles.popper?.transform || ''}`,
             }}
-            className={`popover ${isVisible ? 'popover-enter' : 'popover-exit'}`}
             onAnimationEnd={handleAnimationEnd}
             {...attributes.popper}
           >

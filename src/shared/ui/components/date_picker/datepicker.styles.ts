@@ -32,7 +32,7 @@ export const customDatePickerStyles = css({
     backgroundColor: theme.colors.primary,
     color: theme.colors.text.inverted,
     '&:hover': {
-      backgroundColor: theme.colors.primary,
+      backgroundColor: theme.colors.primary + ' !important',
       color: theme.colors.text.inverted,
       textDecoration: 'none',
       transform: 'scale(1.1)',
